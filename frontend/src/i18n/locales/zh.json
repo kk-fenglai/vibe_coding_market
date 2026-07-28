@@ -1,0 +1,501 @@
+{
+  "app": {
+    "name": "BuilderHub",
+    "tagline": "全球首个 AI Web Coding 接单平台",
+    "footer": "BuilderHub © {{year}} · The Upwork for AI Web Builders"
+  },
+  "feedback": {
+    "title": "意见反馈",
+    "intro": "欢迎告诉我们你的建议、遇到的问题或内容纠错，我们会认真查看。",
+    "categoryLabel": "类型",
+    "category": {
+      "suggestion": "功能建议",
+      "bug": "问题/Bug",
+      "content": "内容纠错",
+      "other": "其他"
+    },
+    "messageLabel": "内容",
+    "messagePlaceholder": "请描述你的意见或遇到的问题…",
+    "messageRequired": "请填写反馈内容",
+    "emailLabel": "联系邮箱（选填）",
+    "emailPlaceholder": "方便我们回复你（选填）",
+    "emailInvalid": "邮箱格式不正确",
+    "submit": "提交",
+    "cancel": "取消",
+    "success": "感谢你的反馈！",
+    "error": "提交失败，请稍后再试",
+    "beta": "测试版",
+    "nudge": {
+      "title": "🚧 网站测试中",
+      "text": "遇到问题或有建议？点这里一句话告诉我们，帮助我们做得更好。",
+      "cta": "我要反馈",
+      "dismiss": "暂不"
+    }
+  },
+  "nav": {
+    "home": "首页",
+    "marketplace": "任务市场",
+    "postProject": "发布任务",
+    "myProjects": "我的任务",
+    "login": "登录",
+    "register": "免费注册",
+    "changePassword": "修改密码",
+    "logout": "退出登录",
+    "myApplications": "我的投标",
+    "builderProfile": "Builder 资料",
+    "messages": "私信",
+    "wallet": "我的钱包"
+  },
+  "landing": {
+    "badge": "全球首个 AI Web Coding 接单平台",
+    "title": "7 天拿到网站，成本只要传统外包的 1/10",
+    "subtitle": "把需求交给经过认证的 AI Web Coding 开发者 —— Cursor / Claude Code / Bolt / v0 高手在这里接单。",
+    "ctaPost": "免费发布任务",
+    "ctaBrowse": "浏览任务市场",
+    "toolsLabel": "认证 Builder 正在使用",
+    "stats": {
+      "speed": {
+        "value": "24–72h",
+        "label": "平均交付时间"
+      },
+      "cost": {
+        "value": "1/10",
+        "label": "传统外包成本"
+      },
+      "escrow": {
+        "value": "100%",
+        "label": "资金托管保障"
+      }
+    },
+    "valueTitle": "为什么选 BuilderHub",
+    "value": {
+      "fast": {
+        "title": "天级交付",
+        "desc": "平均 24–72 小时出可用版本，不再等一个月。"
+      },
+      "cheap": {
+        "title": "1/10 成本",
+        "desc": "AI 把开发效率抬上来，价格自然降下去。"
+      },
+      "verified": {
+        "title": "认证 Builder",
+        "desc": "邀请制冷启动，每位开发者的 AI 能力与交付速度都经过审核。"
+      },
+      "escrow": {
+        "title": "托管支付",
+        "desc": "钱先托管在平台，验收满意后才打款，纠纷可仲裁。"
+      }
+    },
+    "howTitle": "怎么运作",
+    "how": {
+      "s1": {
+        "title": "发布任务",
+        "desc": "写清需求、预算和交付时间，支持 Figma / PRD / 参考站链接。"
+      },
+      "s2": {
+        "title": "挑选 Builder",
+        "desc": "看报价、评分、作品集和 AI 工具标签，选中即雇佣。"
+      },
+      "s3": {
+        "title": "托管付款",
+        "desc": "款项进入平台托管，Builder 开工，全程站内沟通留痕。"
+      },
+      "s4": {
+        "title": "验收放款",
+        "desc": "交付满意后确认放款，双方互评沉淀信誉。"
+      }
+    },
+    "categoriesTitle": "热门类目",
+    "clientTitle": "我要找人做网站",
+    "clientDesc": "官网、Landing Page、SaaS MVP、后台系统 —— 发布需求，24 小时内收到认证 Builder 的报价。",
+    "clientCta": "发布任务",
+    "builderTitle": "你是开发者？",
+    "builderDesc": "会用 Cursor / Claude Code 建站，但缺稳定订单？在这里接单、沉淀作品集与评分资产。",
+    "builderCta": "成为 Builder"
+  },
+  "auth": {
+    "login": "登录",
+    "register": "免费注册",
+    "email": "邮箱",
+    "password": "密码",
+    "nickname": "昵称",
+    "nicknameOptional": "选填",
+    "passwordHint": "至少 10 位，混合大小写/数字/符号",
+    "passwordPolicy": {
+      "minLength": "至少 {{min}} 位",
+      "categories": "须包含小写/大写/数字/符号中至少 3 类",
+      "common": "密码过于常见，请更换",
+      "separator": "；",
+      "strengthPrefix": "强度：",
+      "hint": "至少 {{min}} 位，建议混合大小写、数字和符号",
+      "strength": {
+        "1": "很弱",
+        "2": "较弱",
+        "3": "一般",
+        "4": "较强",
+        "5": "很强"
+      }
+    },
+    "submitLogin": "登录",
+    "submitRegister": "创建账号",
+    "toRegister": "还没有账号？立即注册",
+    "toLogin": "已有账号？直接登录",
+    "forgotPassword": "忘记密码？",
+    "changePassword": {
+      "fromLogin": "修改密码",
+      "title": "修改密码",
+      "subtitle": "修改后将撤销所有登录状态，需使用新密码重新登录。",
+      "oldPassword": "当前密码",
+      "newPassword": "新密码",
+      "confirmPassword": "确认新密码",
+      "submit": "保存",
+      "success": "密码已更新，请重新登录",
+      "fail": "修改失败"
+    },
+    "useAdminLogin": "管理员账户请使用管理后台登录",
+    "loginSuccess": "登录成功",
+    "loginFail": "登录失败",
+    "registerSuccess": "注册成功，欢迎加入 BuilderHub！",
+    "registerFail": "注册失败",
+    "common": {
+      "cancel": "取消"
+    },
+    "forgot": {
+      "title": "重置密码",
+      "subtitle": "输入您的注册邮箱，我们将发送重置链接",
+      "submit": "发送重置链接",
+      "sentTitle": "邮件已发送",
+      "sentDesc": "若该邮箱已注册，我们已向其发送重置链接。请查收邮箱（有效期 30 分钟）。",
+      "backToLogin": "← 返回登录",
+      "fail": "发送失败"
+    },
+    "reset": {
+      "title": "设置新密码",
+      "subtitle": "密码至少 10 位，须包含大小写/数字/符号中至少 3 类",
+      "newPassword": "新密码",
+      "confirmPassword": "确认新密码",
+      "mismatch": "两次输入的密码不一致",
+      "submit": "提交",
+      "success": "密码已重置，请用新密码登录",
+      "fail": "重置失败，链接可能已过期",
+      "missingToken": "链接无效或已失效",
+      "requestNew": "重新申请重置链接"
+    },
+    "verify": {
+      "verifying": "正在验证...",
+      "successTitle": "邮箱验证成功 🎉",
+      "successDesc": "您的账户已激活，现在可以登录了。",
+      "trialStartedDesc": "账户已激活，并已为您开通 AI 无限免费试用。登录后即可体验全部功能。",
+      "expiredTitle": "链接已过期",
+      "expiredDesc": "验证链接已失效，请重新登录后申请发送验证邮件。",
+      "invalidTitle": "链接无效",
+      "invalidDesc": "无法识别此验证链接，请检查或重新申请。",
+      "toLogin": "前往登录",
+      "requiredTitle": "请先验证邮箱",
+      "requiredDesc": "我们已向 {{email}} 发送验证邮件，请点击邮件中的链接完成激活。点击下方按钮可重新发送。"
+    },
+    "sent": {
+      "title": "验证邮件已发送",
+      "desc": "我们向 {{email}} 发送了一封验证邮件。",
+      "hint": "请在 24 小时内点击邮件中的链接完成激活。若未收到，请检查垃圾邮件箱。",
+      "resend": "重新发送",
+      "toLogin": "前往登录",
+      "noEmail": "未识别到邮箱地址",
+      "resent": "验证邮件已重新发送",
+      "resendFail": "发送失败，请稍后重试"
+    }
+  },
+  "market": {
+    "title": "任务市场",
+    "subtitle": "浏览全部公开任务，找到适合你的项目",
+    "search": "搜索任务标题或描述",
+    "filters": "筛选",
+    "reset": "重置",
+    "category": "分类",
+    "currency": "币种",
+    "budgetRange": "预算区间",
+    "budgetMin": "最低",
+    "budgetMax": "最高",
+    "maxDelivery": "最长交付",
+    "days": "{{count}} 天",
+    "urgentOnly": "只看紧急",
+    "stack": "技术栈（逗号分隔）",
+    "sort": "排序",
+    "sortNewest": "最新发布",
+    "sortBudget": "预算最高",
+    "sortDelivery": "交付最快",
+    "empty": "没有符合条件的任务",
+    "applicants": "{{count}} 人申请",
+    "urgent": "紧急",
+    "publishedAt": "发布于",
+    "deliveryIn": "{{count}} 天交付",
+    "applied": "已申请",
+    "viewDetail": "查看详情",
+    "loadError": "加载失败，请稍后再试",
+    "status": {
+      "DRAFT": "草稿",
+      "PENDING_REVIEW": "审核中",
+      "REJECTED": "已驳回",
+      "OPEN": "招募中",
+      "IN_PROGRESS": "进行中",
+      "REVIEW": "待验收",
+      "COMPLETED": "已完成",
+      "CANCELLED": "已取消"
+    },
+    "cat": {
+      "LANDING": "落地页",
+      "AI_SAAS": "AI SaaS",
+      "DASHBOARD": "后台系统",
+      "CORPORATE": "企业官网",
+      "BLOG": "博客",
+      "MVP": "MVP",
+      "CMS": "CMS",
+      "ECOMMERCE": "电商",
+      "RESCUE": "半成品救援",
+      "OTHER": "其他"
+    },
+    "detail": {
+      "description": "需求描述",
+      "attachments": "附件与参考",
+      "budget": "预算",
+      "delivery": "交付周期",
+      "language": "语言要求",
+      "stack": "技术栈偏好",
+      "client": "发布者",
+      "notFound": "任务不存在或已下架",
+      "reviewNote": "审核意见",
+      "apply": "申请接单",
+      "backToMarket": "返回任务市场",
+      "applyTitle": "申请接单",
+      "bidAmount": "报价",
+      "estimatedDays": "预计交付天数",
+      "pitch": "方案说明",
+      "pitchPlaceholder": "一句话说明你的实现方案、使用的 AI 工具和交付物…",
+      "pitchLen": "方案说明至少 10 个字",
+      "portfolioUrl": "作品链接（选填）",
+      "applySubmit": "提交申请",
+      "applyOk": "申请已提交，等待客户回复",
+      "needProfile": "请先完善 Builder 资料再申请任务",
+      "deliveryNote": "交付说明",
+      "deliver": "提交交付",
+      "deliverPlaceholder": "交付内容、部署链接、仓库地址、账号说明等…",
+      "deliverOk": "已提交交付，等待客户验收",
+      "deliverLen": "交付说明至少 10 个字",
+      "confirm": "验收通过",
+      "confirmAsk": "确认验收并完成任务？",
+      "confirmOk": "任务已完成",
+      "requestChanges": "打回返工",
+      "requestChangesOk": "已打回返工，Builder 可继续修改",
+      "dueAt": "交付截止"
+    },
+    "form": {
+      "newTitle": "发布任务",
+      "editTitle": "编辑任务",
+      "title": "项目标题",
+      "titlePlaceholder": "例如：做一个 SaaS 产品的 Landing Page",
+      "description": "需求描述",
+      "descriptionPlaceholder": "支持 Markdown。说明你要做什么、给谁用、有哪些页面或功能、参考网站是什么…",
+      "category": "分类",
+      "budget": "预算",
+      "budgetHint": "只填一个金额即为一口价",
+      "currency": "币种",
+      "delivery": "交付时间",
+      "urgent": "标记为紧急",
+      "language": "沟通语言要求",
+      "languagePlaceholder": "如：中文 / English",
+      "stack": "技术栈偏好",
+      "stackPlaceholder": "回车添加，如 Next.js、Supabase",
+      "tags": "标签",
+      "attachments": "参考链接",
+      "attachmentName": "名称",
+      "attachmentUrl": "链接",
+      "addAttachment": "添加链接",
+      "saveDraft": "存草稿",
+      "submit": "提交审核",
+      "submitted": "已提交审核，通过后会自动上架任务市场",
+      "savedDraft": "草稿已保存",
+      "required": "必填",
+      "titleLen": "标题至少 5 个字",
+      "descLen": "需求描述至少 20 个字",
+      "budgetRequired": "预算至少填一个金额",
+      "budgetOrder": "预算下限不能高于上限"
+    },
+    "mine": {
+      "title": "我的任务",
+      "empty": "还没有发布过任务",
+      "create": "发布任务",
+      "edit": "编辑",
+      "submitReview": "提交审核",
+      "cancel": "取消任务",
+      "cancelConfirm": "确定取消这个任务？",
+      "cancelled": "任务已取消",
+      "submitOk": "已提交审核",
+      "escrowActive": "任务已进入托管交付，请走退款或纠纷流程"
+    },
+    "applicantsCol": "申请数",
+    "apps": {
+      "title": "收到的申请",
+      "bid": "报价",
+      "days": "{{count}} 天",
+      "accept": "录用",
+      "acceptAsk": "录用该 Builder？其余待处理申请将自动拒绝。",
+      "acceptOk": "已录用，任务进入进行中",
+      "reject": "拒绝",
+      "rejectOk": "已拒绝该申请",
+      "completed": "{{count}} 单完成",
+      "verified": "认证 Builder",
+      "status": {
+        "PENDING": "待处理",
+        "ACCEPTED": "已录用",
+        "REJECTED": "已拒绝",
+        "WITHDRAWN": "已撤回"
+      }
+    },
+    "myApps": {
+      "title": "我的投标",
+      "empty": "还没有投过标",
+      "project": "任务",
+      "withdraw": "撤回",
+      "withdrawAsk": "确定撤回这条申请？",
+      "withdrawOk": "已撤回",
+      "browse": "去任务市场"
+    }
+  },
+  "adminMarket": {
+    "title": "任务审核",
+    "queue": "待审核队列",
+    "statusFilter": "状态",
+    "approve": "通过并上架",
+    "reject": "驳回",
+    "rejectReason": "驳回原因（会发邮件给客户）",
+    "rejectRequired": "请填写驳回原因",
+    "approved": "已通过，任务已上架",
+    "rejected": "已驳回",
+    "client": "发布者",
+    "submittedAt": "提交时间",
+    "empty": "队列是空的",
+    "detail": "审核详情"
+  },
+  "builder": {
+    "title": "Builder 资料",
+    "hint": "完善资料后即可在任务市场申请接单。资料会展示给发布任务的客户。",
+    "verified": "认证 Builder",
+    "headline": "一句话介绍",
+    "headlinePlaceholder": "例如：Cursor + Next.js，48h 交付 Landing Page",
+    "bio": "详细介绍",
+    "bioPlaceholder": "你的背景、擅长的项目类型、AI 工作流…",
+    "aiTools": "AI 工具专长",
+    "skills": "技能标签",
+    "skillsPlaceholder": "回车添加，如 Next.js、Tailwind、Supabase",
+    "languages": "沟通语言",
+    "websiteUrl": "个人网站",
+    "urlInvalid": "链接格式不正确",
+    "save": "保存资料",
+    "saveOk": "资料已保存",
+    "portfolioTitle": "作品集",
+    "portfolioAdd": "添加作品",
+    "portfolioEdit": "编辑作品",
+    "portfolioEmpty": "还没有作品，添加你的代表作让客户更信任你",
+    "portfolioItemTitle": "作品名称",
+    "portfolioSummary": "作品简介",
+    "portfolioImage": "封面图链接",
+    "portfolioSort": "排序（数字小在前）",
+    "portfolioSaved": "作品已保存",
+    "portfolioDelete": "删除",
+    "portfolioDeleteAsk": "确定删除这个作品？",
+    "portfolioDeleted": "已删除"
+  },
+  "escrow": {
+    "title": "托管支付",
+    "status": {
+      "PENDING": "待托管付款",
+      "HELD": "托管中",
+      "DISPUTED": "纠纷仲裁中",
+      "RELEASED": "已放款",
+      "REFUNDED": "已退款",
+      "CANCELLED": "已关闭"
+    },
+    "amount": "成交金额",
+    "fee": "平台服务费（{{rate}}%）",
+    "payout": "Builder 实收",
+    "fund": "托管付款",
+    "fundAsk": "确认托管支付 {{amount}}？资金将由平台托管，验收通过后放款给 Builder。",
+    "fundOk": "已托管付款，Builder 可以开工了",
+    "mockHint": "V1 为模拟支付，不产生真实扣款",
+    "waitingPayment": "客户尚未托管付款。建议付款前先不要开工。",
+    "autoConfirmAt": "客户未验收将于 {{date}} 自动确认放款",
+    "dispute": "发起纠纷",
+    "disputeTitle": "发起纠纷仲裁",
+    "disputeReason": "纠纷理由与经过",
+    "disputeReasonLen": "请至少填写 20 个字，说明经过与诉求",
+    "disputeOk": "纠纷已提交，平台运营将介入仲裁",
+    "disputeStatus": {
+      "OPEN": "纠纷仲裁中",
+      "RESOLVED_RELEASE": "仲裁结果：放款给 Builder",
+      "RESOLVED_REFUND": "仲裁结果：全额退款",
+      "RESOLVED_SPLIT": "仲裁结果：部分退款",
+      "WITHDRAWN": "纠纷已撤回"
+    },
+    "resolution": "裁定说明",
+    "released": "已放款：Builder 实收 {{amount}}",
+    "refunded": "托管资金已全额退回客户"
+  },
+  "review": {
+    "title": "双方评价",
+    "rating": "总体评分",
+    "comment": "评价内容",
+    "submit": "提交评价",
+    "submitted": "评价已提交",
+    "waitingOther": "你的评价已提交。为保证公正，双方都提交后才会互相公开（盲评）。",
+    "none": "暂无公开评价",
+    "direction": {
+      "CLIENT_TO_BUILDER": "客户评价",
+      "BUILDER_TO_CLIENT": "Builder 评价"
+    },
+    "dims": {
+      "communication": "沟通",
+      "speed": "交付速度",
+      "codeQuality": "代码质量",
+      "aiSkill": "AI 能力",
+      "delivery": "交付完整度"
+    }
+  },
+  "messages": {
+    "title": "私信",
+    "empty": "还没有会话",
+    "select": "选择左侧会话开始沟通",
+    "placeholder": "输入消息，Enter 发送（Shift+Enter 换行）…",
+    "send": "发送",
+    "contactClient": "联系客户",
+    "contactBuilder": "私信"
+  },
+  "wallet": {
+    "title": "我的钱包",
+    "balance": "可用余额",
+    "held": "托管中",
+    "ledger": "资金流水",
+    "empty": "暂无流水",
+    "time": "时间",
+    "type": "类型",
+    "amount": "金额",
+    "note": "备注",
+    "types": {
+      "DEPOSIT": "充值",
+      "ESCROW_HOLD": "托管冻结",
+      "ESCROW_RELEASE": "托管放款",
+      "PLATFORM_FEE": "平台服务费",
+      "REFUND": "退款",
+      "WITHDRAWAL": "提现"
+    }
+  },
+  "builderPublic": {
+    "notFound": "该 Builder 不存在或未创建资料",
+    "completed": "完成任务",
+    "rating": "平均评分",
+    "earned": "累计收入",
+    "portfolio": "作品集",
+    "noPortfolio": "还没有作品",
+    "platformDelivery": "平台真实交付",
+    "reviews": "客户评价"
+  }
+}

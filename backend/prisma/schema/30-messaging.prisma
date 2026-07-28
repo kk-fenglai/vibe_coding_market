@@ -1,0 +1,50 @@
+// ════════════════════════════════════════════════════════════════════════════
+// 站内沟通层 —— 会话 / 消息（PRD 6.5）
+// 消息留痕是纠纷仲裁依据：只做软删除标记，不物理删除。
+// ════════════════════════════════════════════════════════════════════════════
+
+// 会话粒度 = (任务, Builder)：雇佣前客户可分别与多个申请人沟通。
+model Conversation {
+  id        String  @id @default(cuid())
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  clientId  String
+  client    User    @relation("ConversationClient", fields: [clientId], references: [id], onDelete: Cascade)
+  builderId String
+  builder   User    @relation("ConversationBuilder", fields: [builderId], references: [id], onDelete: Cascade)
+
+  lastMessageAt   DateTime?
+  lastMessageText String?             // 列表页预览，截断存储
+  clientUnread    Int      @default(0)
+  builderUnread   Int      @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  messages Message[]
+
+  @@unique([projectId, builderId])
+  @@index([clientId, lastMessageAt])
+  @@index([builderId, lastMessageAt])
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  senderId       String
+  sender         User         @relation(fields: [senderId], references: [id], onDelete: Cascade)
+
+  body        String  @db.Text        // Markdown / 代码块
+  attachments Json?                    // [{name,url,type,size}]
+
+  // 联系方式交换检测 (PRD 5.3)：命中只做提示 + 运营可见，不封禁、不拦截发送。
+  contactFlag Boolean @default(false)
+
+  readAt    DateTime?
+  deletedAt DateTime?                  // 软删除：仲裁仍可见
+  createdAt DateTime  @default(now())
+
+  @@index([conversationId, createdAt])
+  @@index([contactFlag, createdAt])
+}

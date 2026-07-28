@@ -1,0 +1,185 @@
+// ════════════════════════════════════════════════════════════════════════════
+// 交易市场层 —— Builder 资料 / 作品集 / 任务 / 申请 / 评价
+// 对应 PRD 6.1–6.4、6.7–6.10、7.1–7.3
+// 状态常量集中在 backend/src/constants/marketplace.js，改档位/分类看那里。
+// ════════════════════════════════════════════════════════════════════════════
+
+// ---------------- Builder 资料 (PRD 6.9 / 7.1 / 7.2 / 7.3) ----------------
+// 任何 User 建了 BuilderProfile 才能申请任务；客户端不需要此表。
+model BuilderProfile {
+  id       String @id @default(cuid())
+  userId   String @unique
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  headline String?   // 一句话介绍，如 "Cursor + Next.js，48h 交付 Landing Page"
+  bio      String?   @db.Text
+  country  String?   // ISO 3166-1 alpha-2
+  languages String[] @default([])  // zh | en | fr ...
+  skills    String[] @default([])  // Next.js | Tailwind | Supabase ...
+  aiTools   String[] @default([])  // CURSOR | CLAUDE_CODE | LOVABLE | BOLT | V0 | WINDSURF | REPLIT_AGENT
+  githubUrl  String?
+  websiteUrl String?
+  avatarUrl  String?
+
+  // --- Verified Builder 认证 (7.3，V1 人工审核) ---
+  verified     Boolean   @default(false)
+  verifiedAt   DateTime?
+  verifyNote   String?               // 审核备注 / 驳回原因
+  verifiedById String?               // 审核管理员 User.id（无关系字段，避免 User 关系膨胀）
+
+  // --- 信誉指标：成交后由服务层增量维护，不做实时聚合 ---
+  completedCount   Int      @default(0)
+  ratingSum        Int      @default(0)   // 总分，均分 = ratingSum / ratingCount
+  ratingCount      Int      @default(0)
+  avgDeliveryHours Int?                   // AI Speed 指标 (7.2)：24h / 48h / 72h 档位由前端归档
+  avgResponseMins  Int?                   // 平均首次响应时长
+  totalEarned      Decimal  @default(0) @db.Decimal(12, 2)
+  showEarnings     Boolean  @default(false)  // 总收入可选展示 (6.9)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  portfolio PortfolioItem[]
+
+  @@index([verified, ratingCount])
+  @@index([completedCount])
+}
+
+// ---------------- 作品集 (PRD 6.10) ----------------
+model PortfolioItem {
+  id        String         @id @default(cuid())
+  builderId String
+  builder   BuilderProfile @relation(fields: [builderId], references: [id], onDelete: Cascade)
+
+  title     String
+  summary   String?  @db.Text
+  imageUrl  String?
+  demoUrl   String?
+  repoUrl   String?
+  figmaUrl  String?
+  videoUrl  String?
+
+  // 关联平台内已完成任务 → 带「平台真实交付」标识，排序权重更高
+  projectId String?  @unique
+  project   Project? @relation(fields: [projectId], references: [id], onDelete: SetNull)
+
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([builderId, sortOrder])
+}
+
+// ---------------- 任务 (PRD 6.1 / 6.2 / 6.7) ----------------
+// 状态机：DRAFT → PENDING_REVIEW → OPEN → IN_PROGRESS → REVIEW → COMPLETED
+//         任意态可 → CANCELLED；审核不通过 → REJECTED
+model Project {
+  id       String @id @default(cuid())
+  clientId String
+  client   User   @relation("ProjectClient", fields: [clientId], references: [id], onDelete: Cascade)
+
+  title       String
+  description String   @db.Text          // Markdown
+  category    String                      // LANDING | AI_SAAS | DASHBOARD | CORPORATE | BLOG | MVP | CMS | ECOMMERCE | RESCUE | OTHER
+  budgetMin   Decimal? @db.Decimal(12, 2)
+  budgetMax   Decimal? @db.Decimal(12, 2)
+  currency    String   @default("CNY")   // CNY | USD | EUR
+  deliveryDays Int                        // 1 | 3 | 7 | 14
+  urgent      Boolean  @default(false)
+  languageReq String?                     // 沟通语言要求
+  stackPref   String[] @default([])       // 技术栈偏好
+  tags        String[] @default([])
+  attachments Json?                       // [{name,url,type}] 图片 / Figma / PRD / GitHub / 参考站
+
+  status String @default("DRAFT")         // 见上方状态机
+
+  // --- 人工审核 (6.1) ---
+  reviewedAt   DateTime?
+  reviewedById String?                    // 管理员 User.id
+  reviewNote   String?
+  publishedAt  DateTime?                  // 审核通过、进入市场的时间
+
+  // --- 雇佣 (6.4) ---
+  hiredBuilderId     String?
+  hiredBuilder       User?   @relation("ProjectBuilder", fields: [hiredBuilderId], references: [id], onDelete: SetNull)
+  hiredApplicationId String? @unique
+  hiredAt            DateTime?
+  dueAt              DateTime?            // hiredAt + deliveryDays
+
+  deliveredAt DateTime?                   // Builder 提交交付 → REVIEW
+  completedAt DateTime?
+  cancelledAt DateTime?
+  deliveryNote String? @db.Text           // 交付说明 + 链接
+
+  applicationCount Int @default(0)        // 申请数（上限 15，见 constants/marketplace.js）
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  applications  Application[]
+  reviews       Review[]
+  conversations Conversation[]
+  escrow        EscrowTransaction?
+  portfolioItem PortfolioItem?
+
+  @@index([status, publishedAt])
+  @@index([clientId, status])
+  @@index([hiredBuilderId, status])
+  @@index([category, status])
+}
+
+// ---------------- 申请接单 (PRD 6.3) ----------------
+model Application {
+  id        String  @id @default(cuid())
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  builderId String
+  builder   User    @relation(fields: [builderId], references: [id], onDelete: Cascade)
+
+  bidAmount     Decimal @db.Decimal(12, 2)
+  currency      String  @default("CNY")
+  estimatedDays Int
+  pitch         String  @db.Text          // 一句话方案
+  portfolioUrl  String?                    // 本次申请主推的作品链接
+
+  status      String    @default("PENDING") // PENDING | ACCEPTED | REJECTED | WITHDRAWN
+  respondedAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([projectId, builderId])          // 一个 Builder 对同一任务只能申请一次
+  @@index([builderId, status])
+  @@index([projectId, status])
+}
+
+// ---------------- 评价 (PRD 6.8) ----------------
+// 双向盲评：双方都提交后由服务层同时写 publishedAt；未发布的评价对方不可见。
+// 评价不可修改。
+model Review {
+  id        String  @id @default(cuid())
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  authorId  String
+  author    User    @relation("ReviewAuthor", fields: [authorId], references: [id], onDelete: Cascade)
+  targetId  String
+  target    User    @relation("ReviewTarget", fields: [targetId], references: [id], onDelete: Cascade)
+
+  direction String  // CLIENT_TO_BUILDER | BUILDER_TO_CLIENT
+  rating    Int     // 1–5 总分
+
+  // 客户评 Builder 的分维度（BUILDER_TO_CLIENT 方向留空）
+  communication Int?
+  speed         Int?
+  codeQuality   Int?
+  aiSkill       Int?
+  delivery      Int?
+
+  comment     String?   @db.Text
+  publishedAt DateTime?
+
+  createdAt DateTime @default(now())
+
+  @@unique([projectId, authorId])
+  @@index([targetId, publishedAt])
+}

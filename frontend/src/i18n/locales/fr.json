@@ -1,0 +1,501 @@
+{
+  "app": {
+    "name": "BuilderHub",
+    "tagline": "La première place de marché du AI web coding",
+    "footer": "BuilderHub © {{year}} · The Upwork for AI Web Builders"
+  },
+  "feedback": {
+    "title": "Votre avis",
+    "intro": "Faites-nous part de vos suggestions, des problèmes rencontrés ou des erreurs de contenu — nous lisons chaque message.",
+    "categoryLabel": "Type",
+    "category": {
+      "suggestion": "Suggestion",
+      "bug": "Problème / Bug",
+      "content": "Correction de contenu",
+      "other": "Autre"
+    },
+    "messageLabel": "Message",
+    "messagePlaceholder": "Décrivez votre avis ou le problème rencontré…",
+    "messageRequired": "Veuillez saisir votre message",
+    "emailLabel": "E-mail de contact (facultatif)",
+    "emailPlaceholder": "Pour que nous puissions vous répondre (facultatif)",
+    "emailInvalid": "Adresse e-mail invalide",
+    "submit": "Envoyer",
+    "cancel": "Annuler",
+    "success": "Merci pour votre retour !",
+    "error": "Échec de l'envoi, veuillez réessayer plus tard",
+    "beta": "Bêta",
+    "nudge": {
+      "title": "🚧 Site en test",
+      "text": "Un problème ou une idée ? Dites-le-nous en un mot, ça nous aide à progresser.",
+      "cta": "Donner mon avis",
+      "dismiss": "Plus tard"
+    }
+  },
+  "nav": {
+    "home": "Accueil",
+    "marketplace": "Projets",
+    "postProject": "Publier un projet",
+    "myProjects": "Mes projets",
+    "login": "Connexion",
+    "register": "Inscription gratuite",
+    "changePassword": "Changer le mot de passe",
+    "logout": "Déconnexion",
+    "myApplications": "Mes candidatures",
+    "builderProfile": "Profil Builder",
+    "messages": "Messages",
+    "wallet": "Portefeuille"
+  },
+  "landing": {
+    "badge": "La première marketplace du AI web coding",
+    "title": "Votre site web en 7 jours, à 1/10 du prix d’une agence",
+    "subtitle": "Confiez votre brief à un builder IA certifié — ceux qui livrent avec Cursor, Claude Code, Bolt et v0.",
+    "ctaPost": "Publier un projet — gratuit",
+    "ctaBrowse": "Parcourir la marketplace",
+    "toolsLabel": "Nos builders certifiés utilisent",
+    "stats": {
+      "speed": {
+        "value": "24–72h",
+        "label": "délai moyen"
+      },
+      "cost": {
+        "value": "1/10",
+        "label": "du prix agence"
+      },
+      "escrow": {
+        "value": "100%",
+        "label": "paiement séquestre"
+      }
+    },
+    "valueTitle": "Pourquoi BuilderHub",
+    "value": {
+      "fast": {
+        "title": "Des jours, pas des mois",
+        "desc": "Une version utilisable en 24–72 heures en moyenne."
+      },
+      "cheap": {
+        "title": "1/10 du coût",
+        "desc": "L’IA augmente la productivité, le prix baisse."
+      },
+      "verified": {
+        "title": "Builders certifiés",
+        "desc": "Sur invitation au départ : chaque builder est évalué sur ses compétences IA et sa vitesse."
+      },
+      "escrow": {
+        "title": "Paiement séquestre",
+        "desc": "Les fonds sont bloqués par la plateforme et libérés après votre validation."
+      }
+    },
+    "howTitle": "Comment ça marche",
+    "how": {
+      "s1": {
+        "title": "Publier le projet",
+        "desc": "Périmètre, budget, délai — joignez Figma, un PRD ou des sites de référence."
+      },
+      "s2": {
+        "title": "Choisir un builder",
+        "desc": "Comparez offres, notes, portfolios et badges IA, puis embauchez."
+      },
+      "s3": {
+        "title": "Alimenter le séquestre",
+        "desc": "L’argent est bloqué, le travail commence, tout reste sur la plateforme."
+      },
+      "s4": {
+        "title": "Valider et libérer",
+        "desc": "Satisfait ? Libérez les fonds et laissez un avis."
+      }
+    },
+    "categoriesTitle": "Catégories populaires",
+    "clientTitle": "Besoin d’un site web ?",
+    "clientDesc": "Sites vitrines, landing pages, MVP SaaS, dashboards — publiez votre brief et recevez des offres sous 24 h.",
+    "clientCta": "Publier un projet",
+    "builderTitle": "Vous êtes développeur ?",
+    "builderDesc": "Vous livrez avec Cursor ou Claude Code mais manquez de commandes ? Prenez des projets ici et construisez votre réputation.",
+    "builderCta": "Devenir builder"
+  },
+  "auth": {
+    "login": "Se connecter",
+    "register": "S'inscrire",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "nickname": "Pseudo",
+    "nicknameOptional": "Facultatif",
+    "passwordHint": "Au moins 10 caractères, mélange de majuscules/minuscules/chiffres/symboles",
+    "passwordPolicy": {
+      "minLength": "Au moins {{min}} caractères",
+      "categories": "Doit contenir au moins 3 catégories : minuscule / majuscule / chiffre / symbole",
+      "common": "Ce mot de passe est trop courant, veuillez en choisir un autre",
+      "separator": " ; ",
+      "strengthPrefix": "Force : ",
+      "hint": "Au moins {{min}} caractères ; mélangez majuscules/minuscules, chiffres et symboles",
+      "strength": {
+        "1": "Très faible",
+        "2": "Faible",
+        "3": "Moyen",
+        "4": "Fort",
+        "5": "Très fort"
+      }
+    },
+    "submitLogin": "Se connecter",
+    "submitRegister": "Créer un compte",
+    "toRegister": "Pas de compte ? Inscrivez-vous",
+    "toLogin": "Déjà un compte ? Connectez-vous",
+    "forgotPassword": "Mot de passe oublié ?",
+    "changePassword": {
+      "fromLogin": "Changer le mot de passe",
+      "title": "Changer le mot de passe",
+      "subtitle": "Toutes les sessions seront révoquées ; vous devrez vous reconnecter.",
+      "oldPassword": "Mot de passe actuel",
+      "newPassword": "Nouveau mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "submit": "Enregistrer",
+      "success": "Mot de passe mis à jour. Veuillez vous reconnecter.",
+      "fail": "Échec du changement de mot de passe"
+    },
+    "useAdminLogin": "Les comptes administrateurs doivent se connecter via la console admin",
+    "loginSuccess": "Connexion réussie",
+    "loginFail": "Échec de la connexion",
+    "registerSuccess": "Bienvenue sur BuilderHub !",
+    "registerFail": "Échec de l'inscription",
+    "common": {
+      "cancel": "Annuler"
+    },
+    "forgot": {
+      "title": "Réinitialiser le mot de passe",
+      "subtitle": "Saisissez votre e-mail et nous enverrons un lien de réinitialisation",
+      "submit": "Envoyer le lien",
+      "sentTitle": "E-mail envoyé",
+      "sentDesc": "Si cet e-mail est enregistré, un lien de réinitialisation a été envoyé. Il expire dans 30 minutes.",
+      "backToLogin": "← Retour à la connexion",
+      "fail": "Échec de l'envoi"
+    },
+    "reset": {
+      "title": "Définir un nouveau mot de passe",
+      "subtitle": "Au moins 10 caractères ; au moins 3 types parmi minuscule/majuscule/chiffre/symbole",
+      "newPassword": "Nouveau mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "mismatch": "Les mots de passe ne correspondent pas",
+      "submit": "Valider",
+      "success": "Mot de passe réinitialisé. Connectez-vous avec le nouveau.",
+      "fail": "Échec — le lien est peut-être expiré",
+      "missingToken": "Lien invalide ou expiré",
+      "requestNew": "Demander un nouveau lien"
+    },
+    "verify": {
+      "verifying": "Vérification...",
+      "successTitle": "E-mail vérifié 🎉",
+      "successDesc": "Votre compte est activé. Vous pouvez vous connecter.",
+      "trialStartedDesc": "Compte activé et essai gratuit AI Illimité ouvert. Connectez-vous pour tout explorer.",
+      "expiredTitle": "Lien expiré",
+      "expiredDesc": "Le lien de vérification n'est plus valable. Demandez-en un nouveau.",
+      "invalidTitle": "Lien invalide",
+      "invalidDesc": "Ce lien de vérification n'est pas reconnu.",
+      "toLogin": "Se connecter",
+      "requiredTitle": "Vérifiez votre e-mail",
+      "requiredDesc": "Un e-mail de vérification a été envoyé à {{email}}. Cliquez sur le lien pour activer votre compte, ou renvoyez-en un ci-dessous."
+    },
+    "sent": {
+      "title": "E-mail de vérification envoyé",
+      "desc": "Un e-mail de vérification a été envoyé à {{email}}.",
+      "hint": "Cliquez sur le lien sous 24 heures pour activer votre compte. Vérifiez aussi les spams.",
+      "resend": "Renvoyer",
+      "toLogin": "Se connecter",
+      "noEmail": "Adresse e-mail introuvable",
+      "resent": "E-mail renvoyé",
+      "resendFail": "Échec du renvoi, réessayez plus tard"
+    }
+  },
+  "market": {
+    "title": "Projets",
+    "subtitle": "Parcourez les projets ouverts et trouvez votre prochaine mission",
+    "search": "Rechercher un titre ou une description",
+    "filters": "Filtres",
+    "reset": "Réinitialiser",
+    "category": "Catégorie",
+    "currency": "Devise",
+    "budgetRange": "Budget",
+    "budgetMin": "Min",
+    "budgetMax": "Max",
+    "maxDelivery": "Délai max",
+    "days": "{{count}} jours",
+    "urgentOnly": "Urgents seulement",
+    "stack": "Stack (séparé par des virgules)",
+    "sort": "Tri",
+    "sortNewest": "Plus récents",
+    "sortBudget": "Budget le plus élevé",
+    "sortDelivery": "Livraison la plus rapide",
+    "empty": "Aucun projet ne correspond à ces filtres",
+    "applicants": "{{count}} candidatures",
+    "urgent": "Urgent",
+    "publishedAt": "Publié",
+    "deliveryIn": "Livraison en {{count}} jours",
+    "applied": "Candidature envoyée",
+    "viewDetail": "Voir le détail",
+    "loadError": "Chargement impossible, réessayez",
+    "status": {
+      "DRAFT": "Brouillon",
+      "PENDING_REVIEW": "En validation",
+      "REJECTED": "Refusé",
+      "OPEN": "Ouvert",
+      "IN_PROGRESS": "En cours",
+      "REVIEW": "À valider",
+      "COMPLETED": "Terminé",
+      "CANCELLED": "Annulé"
+    },
+    "cat": {
+      "LANDING": "Landing page",
+      "AI_SAAS": "AI SaaS",
+      "DASHBOARD": "Back-office",
+      "CORPORATE": "Site vitrine",
+      "BLOG": "Blog",
+      "MVP": "MVP",
+      "CMS": "CMS",
+      "ECOMMERCE": "E-commerce",
+      "RESCUE": "Reprise de projet",
+      "OTHER": "Autre"
+    },
+    "detail": {
+      "description": "Brief",
+      "attachments": "Pièces jointes et références",
+      "budget": "Budget",
+      "delivery": "Délai",
+      "language": "Langue",
+      "stack": "Stack souhaitée",
+      "client": "Publié par",
+      "notFound": "Ce projet n’existe pas ou n’est plus en ligne",
+      "reviewNote": "Note de validation",
+      "apply": "Candidater",
+      "backToMarket": "Retour aux projets",
+      "applyTitle": "Postuler à ce projet",
+      "bidAmount": "Votre offre",
+      "estimatedDays": "Délai estimé (jours)",
+      "pitch": "Proposition",
+      "pitchPlaceholder": "Décrivez brièvement votre approche, vos outils IA et vos livrables…",
+      "pitchLen": "La proposition doit contenir au moins 10 caractères",
+      "portfolioUrl": "Lien portfolio (facultatif)",
+      "applySubmit": "Envoyer la candidature",
+      "applyOk": "Candidature envoyée — en attente du client",
+      "needProfile": "Complétez d'abord votre profil Builder pour postuler",
+      "deliveryNote": "Note de livraison",
+      "deliver": "Soumettre la livraison",
+      "deliverPlaceholder": "Ce qui est livré : URL de déploiement, dépôt, identifiants…",
+      "deliverOk": "Livraison soumise — en attente de validation du client",
+      "deliverLen": "La note de livraison doit contenir au moins 10 caractères",
+      "confirm": "Valider la livraison",
+      "confirmAsk": "Valider la livraison et clôturer le projet ?",
+      "confirmOk": "Projet terminé",
+      "requestChanges": "Demander des modifications",
+      "requestChangesOk": "Renvoyé pour modifications",
+      "dueAt": "Échéance"
+    },
+    "form": {
+      "newTitle": "Publier un projet",
+      "editTitle": "Modifier le projet",
+      "title": "Titre du projet",
+      "titlePlaceholder": "ex. Landing page pour un produit SaaS",
+      "description": "Brief",
+      "descriptionPlaceholder": "Markdown supporté. Que construisez-vous, pour qui, quelles pages ou fonctions, sites de référence…",
+      "category": "Catégorie",
+      "budget": "Budget",
+      "budgetHint": "Un seul montant = prix fixe",
+      "currency": "Devise",
+      "delivery": "Délai de livraison",
+      "urgent": "Marquer comme urgent",
+      "language": "Langue de travail",
+      "languagePlaceholder": "ex. Français / English",
+      "stack": "Stack souhaitée",
+      "stackPlaceholder": "Entrée pour ajouter, ex. Next.js, Supabase",
+      "tags": "Tags",
+      "attachments": "Liens de référence",
+      "attachmentName": "Libellé",
+      "attachmentUrl": "Lien",
+      "addAttachment": "Ajouter un lien",
+      "saveDraft": "Enregistrer le brouillon",
+      "submit": "Soumettre à validation",
+      "submitted": "Soumis — mise en ligne après validation",
+      "savedDraft": "Brouillon enregistré",
+      "required": "Requis",
+      "titleLen": "Le titre doit faire au moins 5 caractères",
+      "descLen": "Le brief doit faire au moins 20 caractères",
+      "budgetRequired": "Indiquez au moins un montant",
+      "budgetOrder": "Le minimum ne peut pas dépasser le maximum"
+    },
+    "mine": {
+      "title": "Mes projets",
+      "empty": "Vous n’avez pas encore publié de projet",
+      "create": "Publier un projet",
+      "edit": "Modifier",
+      "submitReview": "Soumettre à validation",
+      "cancel": "Annuler le projet",
+      "cancelConfirm": "Annuler ce projet ?",
+      "cancelled": "Projet annulé",
+      "submitOk": "Soumis à validation",
+      "escrowActive": "Séquestre actif — utilisez le remboursement ou le litige"
+    },
+    "applicantsCol": "Candidatures",
+    "apps": {
+      "title": "Candidatures reçues",
+      "bid": "Offre",
+      "days": "{{count}} jours",
+      "accept": "Recruter",
+      "acceptAsk": "Recruter ce builder ? Les autres candidatures en attente seront refusées.",
+      "acceptOk": "Recruté — le projet est en cours",
+      "reject": "Refuser",
+      "rejectOk": "Candidature refusée",
+      "completed": "{{count}} projets terminés",
+      "verified": "Builder certifié",
+      "status": {
+        "PENDING": "En attente",
+        "ACCEPTED": "Recruté",
+        "REJECTED": "Refusée",
+        "WITHDRAWN": "Retirée"
+      }
+    },
+    "myApps": {
+      "title": "Mes candidatures",
+      "empty": "Vous n'avez encore postulé à aucun projet",
+      "project": "Projet",
+      "withdraw": "Retirer",
+      "withdrawAsk": "Retirer cette candidature ?",
+      "withdrawOk": "Candidature retirée",
+      "browse": "Parcourir les projets"
+    }
+  },
+  "adminMarket": {
+    "title": "Validation des projets",
+    "queue": "File de validation",
+    "statusFilter": "Statut",
+    "approve": "Valider et publier",
+    "reject": "Refuser",
+    "rejectReason": "Motif du refus (envoyé au client par e-mail)",
+    "rejectRequired": "Un motif est requis",
+    "approved": "Validé — le projet est en ligne",
+    "rejected": "Refusé",
+    "client": "Client",
+    "submittedAt": "Soumis le",
+    "empty": "La file est vide",
+    "detail": "Détail"
+  },
+  "builder": {
+    "title": "Profil Builder",
+    "hint": "Complétez votre profil pour postuler aux projets. Les clients le verront avec vos candidatures.",
+    "verified": "Builder certifié",
+    "headline": "Accroche",
+    "headlinePlaceholder": "ex. Cursor + Next.js — landing pages en 48h",
+    "bio": "À propos",
+    "bioPlaceholder": "Votre parcours, vos types de projets préférés, votre workflow IA…",
+    "aiTools": "Outils IA maîtrisés",
+    "skills": "Compétences",
+    "skillsPlaceholder": "Entrée pour ajouter, ex. Next.js, Tailwind, Supabase",
+    "languages": "Langues",
+    "websiteUrl": "Site web",
+    "urlInvalid": "URL invalide",
+    "save": "Enregistrer le profil",
+    "saveOk": "Profil enregistré",
+    "portfolioTitle": "Portfolio",
+    "portfolioAdd": "Ajouter",
+    "portfolioEdit": "Modifier",
+    "portfolioEmpty": "Pas encore de portfolio — montrez vos meilleures réalisations",
+    "portfolioItemTitle": "Titre",
+    "portfolioSummary": "Résumé",
+    "portfolioImage": "URL de l'image de couverture",
+    "portfolioSort": "Ordre (croissant)",
+    "portfolioSaved": "Réalisation enregistrée",
+    "portfolioDelete": "Supprimer",
+    "portfolioDeleteAsk": "Supprimer cette réalisation ?",
+    "portfolioDeleted": "Supprimée"
+  },
+  "escrow": {
+    "title": "Paiement sous séquestre",
+    "status": {
+      "PENDING": "En attente de paiement",
+      "HELD": "Sous séquestre",
+      "DISPUTED": "En litige",
+      "RELEASED": "Fonds libérés",
+      "REFUNDED": "Remboursé",
+      "CANCELLED": "Clôturé"
+    },
+    "amount": "Montant du contrat",
+    "fee": "Frais de plateforme ({{rate}}%)",
+    "payout": "Versement au builder",
+    "fund": "Payer sous séquestre",
+    "fundAsk": "Déposer {{amount}} sous séquestre ? La plateforme conserve les fonds et les libère après validation de la livraison.",
+    "fundOk": "Séquestre financé — le builder peut commencer",
+    "mockHint": "V1 : paiement simulé, aucun débit réel",
+    "waitingPayment": "Le client n'a pas encore financé le séquestre. Mieux vaut attendre avant de commencer.",
+    "autoConfirmAt": "Confirmation automatique et libération le {{date}} sans réponse du client",
+    "dispute": "Ouvrir un litige",
+    "disputeTitle": "Ouvrir un litige",
+    "disputeReason": "Description du problème",
+    "disputeReasonLen": "Veuillez écrire au moins 20 caractères",
+    "disputeOk": "Litige soumis — l'équipe de la plateforme arbitrera",
+    "disputeStatus": {
+      "OPEN": "Litige en cours d'examen",
+      "RESOLVED_RELEASE": "Résolu : fonds libérés au builder",
+      "RESOLVED_REFUND": "Résolu : remboursement intégral",
+      "RESOLVED_SPLIT": "Résolu : remboursement partiel",
+      "WITHDRAWN": "Litige retiré"
+    },
+    "resolution": "Décision",
+    "released": "Fonds libérés — le builder a reçu {{amount}}",
+    "refunded": "Séquestre intégralement remboursé au client"
+  },
+  "review": {
+    "title": "Évaluations",
+    "rating": "Note globale",
+    "comment": "Commentaire",
+    "submit": "Envoyer l'évaluation",
+    "submitted": "Évaluation envoyée",
+    "waitingOther": "Votre évaluation est enregistrée. Elle sera publiée quand les deux parties auront évalué (double aveugle).",
+    "none": "Pas encore d'évaluation publique",
+    "direction": {
+      "CLIENT_TO_BUILDER": "Évaluation du client",
+      "BUILDER_TO_CLIENT": "Évaluation du builder"
+    },
+    "dims": {
+      "communication": "Communication",
+      "speed": "Rapidité",
+      "codeQuality": "Qualité du code",
+      "aiSkill": "Maîtrise IA",
+      "delivery": "Livraison"
+    }
+  },
+  "messages": {
+    "title": "Messages",
+    "empty": "Aucune conversation",
+    "select": "Sélectionnez une conversation pour discuter",
+    "placeholder": "Écrivez un message, Entrée pour envoyer (Maj+Entrée : saut de ligne)…",
+    "send": "Envoyer",
+    "contactClient": "Contacter le client",
+    "contactBuilder": "Message"
+  },
+  "wallet": {
+    "title": "Portefeuille",
+    "balance": "Solde disponible",
+    "held": "Sous séquestre",
+    "ledger": "Mouvements",
+    "empty": "Aucun mouvement",
+    "time": "Date",
+    "type": "Type",
+    "amount": "Montant",
+    "note": "Note",
+    "types": {
+      "DEPOSIT": "Dépôt",
+      "ESCROW_HOLD": "Blocage séquestre",
+      "ESCROW_RELEASE": "Libération séquestre",
+      "PLATFORM_FEE": "Frais de plateforme",
+      "REFUND": "Remboursement",
+      "WITHDRAWAL": "Retrait"
+    }
+  },
+  "builderPublic": {
+    "notFound": "Builder introuvable",
+    "completed": "Projets terminés",
+    "rating": "Note moyenne",
+    "earned": "Revenus cumulés",
+    "portfolio": "Portfolio",
+    "noPortfolio": "Pas encore de réalisations",
+    "platformDelivery": "Livré via la plateforme",
+    "reviews": "Avis clients"
+  }
+}

@@ -1,0 +1,501 @@
+{
+  "app": {
+    "name": "BuilderHub",
+    "tagline": "The first marketplace for AI web coding",
+    "footer": "BuilderHub © {{year}} · The Upwork for AI Web Builders"
+  },
+  "feedback": {
+    "title": "Feedback",
+    "intro": "Tell us your suggestions, the problems you ran into, or content errors — we read every message.",
+    "categoryLabel": "Type",
+    "category": {
+      "suggestion": "Suggestion",
+      "bug": "Problem / Bug",
+      "content": "Content correction",
+      "other": "Other"
+    },
+    "messageLabel": "Message",
+    "messagePlaceholder": "Describe your feedback or the issue you encountered…",
+    "messageRequired": "Please enter your feedback",
+    "emailLabel": "Contact email (optional)",
+    "emailPlaceholder": "So we can reply to you (optional)",
+    "emailInvalid": "Invalid email address",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "success": "Thanks for your feedback!",
+    "error": "Submission failed, please try again later",
+    "beta": "Beta",
+    "nudge": {
+      "title": "🚧 Site in testing",
+      "text": "Hit a problem or have an idea? Drop us a line — it helps us improve.",
+      "cta": "Give feedback",
+      "dismiss": "Not now"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "marketplace": "Marketplace",
+    "postProject": "Post a project",
+    "myProjects": "My projects",
+    "login": "Log in",
+    "register": "Sign up free",
+    "changePassword": "Change password",
+    "logout": "Log out",
+    "myApplications": "My Bids",
+    "builderProfile": "Builder Profile",
+    "messages": "Messages",
+    "wallet": "Wallet"
+  },
+  "landing": {
+    "badge": "The first marketplace for AI web coding",
+    "title": "Get your website in 7 days, at 1/10 the agency price",
+    "subtitle": "Hand your brief to a verified AI web builder — the people shipping with Cursor, Claude Code, Bolt and v0.",
+    "ctaPost": "Post a project — free",
+    "ctaBrowse": "Browse the marketplace",
+    "toolsLabel": "Our verified builders ship with",
+    "stats": {
+      "speed": {
+        "value": "24–72h",
+        "label": "average delivery"
+      },
+      "cost": {
+        "value": "1/10",
+        "label": "of agency pricing"
+      },
+      "escrow": {
+        "value": "100%",
+        "label": "escrow protected"
+      }
+    },
+    "valueTitle": "Why BuilderHub",
+    "value": {
+      "fast": {
+        "title": "Days, not months",
+        "desc": "A usable build in 24–72 hours on average."
+      },
+      "cheap": {
+        "title": "1/10 the cost",
+        "desc": "AI lifts the throughput, so the price comes down."
+      },
+      "verified": {
+        "title": "Verified builders",
+        "desc": "Invite-only to start: every builder is vetted on AI skill and delivery speed."
+      },
+      "escrow": {
+        "title": "Escrow payments",
+        "desc": "Funds are held by the platform and released only once you approve."
+      }
+    },
+    "howTitle": "How it works",
+    "how": {
+      "s1": {
+        "title": "Post the project",
+        "desc": "Scope, budget, deadline — attach Figma, a PRD or reference sites."
+      },
+      "s2": {
+        "title": "Pick a builder",
+        "desc": "Compare bids, ratings, portfolios and AI tool badges, then hire."
+      },
+      "s3": {
+        "title": "Fund escrow",
+        "desc": "Money goes into escrow, work starts, everything stays on-platform."
+      },
+      "s4": {
+        "title": "Approve & release",
+        "desc": "Happy with the delivery? Release the funds and leave a review."
+      }
+    },
+    "categoriesTitle": "Popular categories",
+    "clientTitle": "Need a website built?",
+    "clientDesc": "Company sites, landing pages, SaaS MVPs, dashboards — post your brief and get bids from verified builders within 24 hours.",
+    "clientCta": "Post a project",
+    "builderTitle": "Are you a builder?",
+    "builderDesc": "You can ship with Cursor or Claude Code but the deal flow is unreliable? Take work here and build a track record that compounds.",
+    "builderCta": "Become a builder"
+  },
+  "auth": {
+    "login": "Sign in",
+    "register": "Sign up",
+    "email": "Email",
+    "password": "Password",
+    "nickname": "Nickname",
+    "nicknameOptional": "Optional",
+    "passwordHint": "At least 10 characters, mix of upper/lower/digit/symbol",
+    "passwordPolicy": {
+      "minLength": "At least {{min}} characters",
+      "categories": "Must include at least 3 of: lowercase / uppercase / digit / symbol",
+      "common": "This password is too common, please choose another",
+      "separator": "; ",
+      "strengthPrefix": "Strength: ",
+      "hint": "At least {{min}} characters; mix upper/lowercase, digits and symbols",
+      "strength": {
+        "1": "Very weak",
+        "2": "Weak",
+        "3": "Fair",
+        "4": "Strong",
+        "5": "Very strong"
+      }
+    },
+    "submitLogin": "Sign in",
+    "submitRegister": "Create account",
+    "toRegister": "No account? Sign up",
+    "toLogin": "Have an account? Sign in",
+    "forgotPassword": "Forgot password?",
+    "changePassword": {
+      "fromLogin": "Change password",
+      "title": "Change password",
+      "subtitle": "All sessions will be revoked; you will need to sign in again.",
+      "oldPassword": "Current password",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm new password",
+      "submit": "Save",
+      "success": "Password updated. Please sign in again.",
+      "fail": "Could not change password"
+    },
+    "useAdminLogin": "Admin accounts must sign in via the admin console",
+    "loginSuccess": "Signed in successfully",
+    "loginFail": "Sign in failed",
+    "registerSuccess": "Welcome to BuilderHub!",
+    "registerFail": "Sign up failed",
+    "common": {
+      "cancel": "Cancel"
+    },
+    "forgot": {
+      "title": "Reset password",
+      "subtitle": "Enter your account email and we'll send a reset link",
+      "submit": "Send reset link",
+      "sentTitle": "Email sent",
+      "sentDesc": "If this email is registered, a reset link has been sent. It will expire in 30 minutes.",
+      "backToLogin": "← Back to sign in",
+      "fail": "Failed to send"
+    },
+    "reset": {
+      "title": "Set a new password",
+      "subtitle": "At least 10 characters; include at least 3 of lower/upper/digit/symbol",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm password",
+      "mismatch": "Passwords do not match",
+      "submit": "Submit",
+      "success": "Password reset. Please sign in with your new password.",
+      "fail": "Reset failed — link may have expired",
+      "missingToken": "Link invalid or expired",
+      "requestNew": "Request a new reset link"
+    },
+    "verify": {
+      "verifying": "Verifying…",
+      "successTitle": "Email verified 🎉",
+      "successDesc": "Your account is active. You can now sign in.",
+      "trialStartedDesc": "Your account is active and your AI Unlimited free trial is ready. Sign in to explore all features.",
+      "expiredTitle": "Link expired",
+      "expiredDesc": "The verification link is no longer valid. Please request a new one after signing in.",
+      "invalidTitle": "Link invalid",
+      "invalidDesc": "We couldn't recognize this verification link.",
+      "toLogin": "Go to sign in",
+      "requiredTitle": "Please verify your email",
+      "requiredDesc": "We sent a verification email to {{email}}. Click the link inside to activate your account, or press the button below to resend."
+    },
+    "sent": {
+      "title": "Verification email sent",
+      "desc": "We've sent a verification email to {{email}}.",
+      "hint": "Click the link within 24 hours to activate your account. Check your spam folder if you don't see it.",
+      "resend": "Resend",
+      "toLogin": "Go to sign in",
+      "noEmail": "No email address detected",
+      "resent": "Verification email resent",
+      "resendFail": "Failed to resend, please try later"
+    }
+  },
+  "market": {
+    "title": "Marketplace",
+    "subtitle": "Browse open projects and find your next build",
+    "search": "Search title or description",
+    "filters": "Filters",
+    "reset": "Reset",
+    "category": "Category",
+    "currency": "Currency",
+    "budgetRange": "Budget",
+    "budgetMin": "Min",
+    "budgetMax": "Max",
+    "maxDelivery": "Max delivery",
+    "days": "{{count}} days",
+    "urgentOnly": "Urgent only",
+    "stack": "Stack (comma separated)",
+    "sort": "Sort",
+    "sortNewest": "Newest",
+    "sortBudget": "Highest budget",
+    "sortDelivery": "Fastest delivery",
+    "empty": "No projects match these filters",
+    "applicants": "{{count}} applicants",
+    "urgent": "Urgent",
+    "publishedAt": "Posted",
+    "deliveryIn": "{{count}}-day delivery",
+    "applied": "Applied",
+    "viewDetail": "View details",
+    "loadError": "Could not load projects, please retry",
+    "status": {
+      "DRAFT": "Draft",
+      "PENDING_REVIEW": "In review",
+      "REJECTED": "Rejected",
+      "OPEN": "Open",
+      "IN_PROGRESS": "In progress",
+      "REVIEW": "Awaiting approval",
+      "COMPLETED": "Completed",
+      "CANCELLED": "Cancelled"
+    },
+    "cat": {
+      "LANDING": "Landing page",
+      "AI_SAAS": "AI SaaS",
+      "DASHBOARD": "Dashboard",
+      "CORPORATE": "Company site",
+      "BLOG": "Blog",
+      "MVP": "MVP",
+      "CMS": "CMS",
+      "ECOMMERCE": "E-commerce",
+      "RESCUE": "Rescue / fix-up",
+      "OTHER": "Other"
+    },
+    "detail": {
+      "description": "Brief",
+      "attachments": "Attachments & references",
+      "budget": "Budget",
+      "delivery": "Delivery",
+      "language": "Language",
+      "stack": "Preferred stack",
+      "client": "Posted by",
+      "notFound": "This project does not exist or is no longer listed",
+      "reviewNote": "Review note",
+      "apply": "Apply",
+      "backToMarket": "Back to marketplace",
+      "applyTitle": "Apply for this project",
+      "bidAmount": "Your bid",
+      "estimatedDays": "Estimated delivery (days)",
+      "pitch": "Pitch",
+      "pitchPlaceholder": "Briefly describe your approach, AI tools and deliverables…",
+      "pitchLen": "Pitch must be at least 10 characters",
+      "portfolioUrl": "Portfolio link (optional)",
+      "applySubmit": "Submit application",
+      "applyOk": "Application submitted — waiting for the client",
+      "needProfile": "Please complete your Builder profile before applying",
+      "deliveryNote": "Delivery note",
+      "deliver": "Submit delivery",
+      "deliverPlaceholder": "What you delivered: deployment URL, repository, credentials…",
+      "deliverOk": "Delivery submitted — waiting for client review",
+      "deliverLen": "Delivery note must be at least 10 characters",
+      "confirm": "Accept delivery",
+      "confirmAsk": "Accept the delivery and complete the project?",
+      "confirmOk": "Project completed",
+      "requestChanges": "Request changes",
+      "requestChangesOk": "Sent back for changes",
+      "dueAt": "Due date"
+    },
+    "form": {
+      "newTitle": "Post a project",
+      "editTitle": "Edit project",
+      "title": "Project title",
+      "titlePlaceholder": "e.g. Landing page for a SaaS product",
+      "description": "Brief",
+      "descriptionPlaceholder": "Markdown supported. What are you building, for whom, which pages or features, any reference sites…",
+      "category": "Category",
+      "budget": "Budget",
+      "budgetHint": "Fill a single amount for a fixed price",
+      "currency": "Currency",
+      "delivery": "Delivery time",
+      "urgent": "Mark as urgent",
+      "language": "Language requirement",
+      "languagePlaceholder": "e.g. English / 中文",
+      "stack": "Preferred stack",
+      "stackPlaceholder": "Press enter to add, e.g. Next.js, Supabase",
+      "tags": "Tags",
+      "attachments": "Reference links",
+      "attachmentName": "Label",
+      "attachmentUrl": "URL",
+      "addAttachment": "Add link",
+      "saveDraft": "Save draft",
+      "submit": "Submit for review",
+      "submitted": "Submitted — it goes live once approved",
+      "savedDraft": "Draft saved",
+      "required": "Required",
+      "titleLen": "Title needs at least 5 characters",
+      "descLen": "Brief needs at least 20 characters",
+      "budgetRequired": "Enter at least one budget amount",
+      "budgetOrder": "Minimum cannot exceed maximum"
+    },
+    "mine": {
+      "title": "My projects",
+      "empty": "You have not posted a project yet",
+      "create": "Post a project",
+      "edit": "Edit",
+      "submitReview": "Submit for review",
+      "cancel": "Cancel project",
+      "cancelConfirm": "Cancel this project?",
+      "cancelled": "Project cancelled",
+      "submitOk": "Submitted for review",
+      "escrowActive": "Escrow is active — use the refund or dispute flow instead"
+    },
+    "applicantsCol": "Applicants",
+    "apps": {
+      "title": "Applications received",
+      "bid": "Bid",
+      "days": "{{count}} days",
+      "accept": "Hire",
+      "acceptAsk": "Hire this builder? Other pending applications will be rejected.",
+      "acceptOk": "Hired — project is now in progress",
+      "reject": "Decline",
+      "rejectOk": "Application declined",
+      "completed": "{{count}} completed",
+      "verified": "Verified Builder",
+      "status": {
+        "PENDING": "Pending",
+        "ACCEPTED": "Hired",
+        "REJECTED": "Declined",
+        "WITHDRAWN": "Withdrawn"
+      }
+    },
+    "myApps": {
+      "title": "My Bids",
+      "empty": "You haven't applied to any project yet",
+      "project": "Project",
+      "withdraw": "Withdraw",
+      "withdrawAsk": "Withdraw this application?",
+      "withdrawOk": "Application withdrawn",
+      "browse": "Browse projects"
+    }
+  },
+  "adminMarket": {
+    "title": "Project review",
+    "queue": "Review queue",
+    "statusFilter": "Status",
+    "approve": "Approve & publish",
+    "reject": "Reject",
+    "rejectReason": "Rejection reason (emailed to the client)",
+    "rejectRequired": "A reason is required",
+    "approved": "Approved — project is live",
+    "rejected": "Rejected",
+    "client": "Client",
+    "submittedAt": "Submitted",
+    "empty": "The queue is empty",
+    "detail": "Review detail"
+  },
+  "builder": {
+    "title": "Builder Profile",
+    "hint": "Complete your profile to apply for projects. Clients will see it with your applications.",
+    "verified": "Verified Builder",
+    "headline": "Headline",
+    "headlinePlaceholder": "e.g. Cursor + Next.js — landing pages in 48h",
+    "bio": "About you",
+    "bioPlaceholder": "Your background, favorite project types, AI workflow…",
+    "aiTools": "AI tool expertise",
+    "skills": "Skills",
+    "skillsPlaceholder": "Press Enter to add, e.g. Next.js, Tailwind, Supabase",
+    "languages": "Languages",
+    "websiteUrl": "Website",
+    "urlInvalid": "Invalid URL",
+    "save": "Save profile",
+    "saveOk": "Profile saved",
+    "portfolioTitle": "Portfolio",
+    "portfolioAdd": "Add item",
+    "portfolioEdit": "Edit item",
+    "portfolioEmpty": "No portfolio yet — showcase your best work to win trust",
+    "portfolioItemTitle": "Title",
+    "portfolioSummary": "Summary",
+    "portfolioImage": "Cover image URL",
+    "portfolioSort": "Sort order (lower first)",
+    "portfolioSaved": "Portfolio item saved",
+    "portfolioDelete": "Delete",
+    "portfolioDeleteAsk": "Delete this item?",
+    "portfolioDeleted": "Deleted"
+  },
+  "escrow": {
+    "title": "Escrow",
+    "status": {
+      "PENDING": "Awaiting payment",
+      "HELD": "In escrow",
+      "DISPUTED": "In dispute",
+      "RELEASED": "Released",
+      "REFUNDED": "Refunded",
+      "CANCELLED": "Closed"
+    },
+    "amount": "Contract amount",
+    "fee": "Platform fee ({{rate}}%)",
+    "payout": "Builder payout",
+    "fund": "Fund escrow",
+    "fundAsk": "Fund {{amount}} into escrow? The platform holds it and releases to the builder after you accept the delivery.",
+    "fundOk": "Escrow funded — the builder can start working",
+    "mockHint": "V1 is a simulated payment — no real charge",
+    "waitingPayment": "The client hasn't funded escrow yet. Consider waiting before starting work.",
+    "autoConfirmAt": "Auto-confirms and releases on {{date}} if the client doesn't respond",
+    "dispute": "Open dispute",
+    "disputeTitle": "Open a dispute",
+    "disputeReason": "What happened",
+    "disputeReasonLen": "Please write at least 20 characters describing the issue",
+    "disputeOk": "Dispute submitted — platform staff will arbitrate",
+    "disputeStatus": {
+      "OPEN": "Dispute under review",
+      "RESOLVED_RELEASE": "Resolved: released to builder",
+      "RESOLVED_REFUND": "Resolved: full refund",
+      "RESOLVED_SPLIT": "Resolved: partial refund",
+      "WITHDRAWN": "Dispute withdrawn"
+    },
+    "resolution": "Resolution",
+    "released": "Released — builder received {{amount}}",
+    "refunded": "Escrow fully refunded to the client"
+  },
+  "review": {
+    "title": "Reviews",
+    "rating": "Overall rating",
+    "comment": "Comment",
+    "submit": "Submit review",
+    "submitted": "Review submitted",
+    "waitingOther": "Your review is in. Reviews go public only after both sides submit (double-blind).",
+    "none": "No public reviews yet",
+    "direction": {
+      "CLIENT_TO_BUILDER": "Client review",
+      "BUILDER_TO_CLIENT": "Builder review"
+    },
+    "dims": {
+      "communication": "Communication",
+      "speed": "Speed",
+      "codeQuality": "Code quality",
+      "aiSkill": "AI skill",
+      "delivery": "Delivery"
+    }
+  },
+  "messages": {
+    "title": "Messages",
+    "empty": "No conversations yet",
+    "select": "Select a conversation to start chatting",
+    "placeholder": "Type a message, Enter to send (Shift+Enter for newline)…",
+    "send": "Send",
+    "contactClient": "Contact client",
+    "contactBuilder": "Message"
+  },
+  "wallet": {
+    "title": "Wallet",
+    "balance": "Available balance",
+    "held": "In escrow",
+    "ledger": "Transactions",
+    "empty": "No transactions yet",
+    "time": "Time",
+    "type": "Type",
+    "amount": "Amount",
+    "note": "Note",
+    "types": {
+      "DEPOSIT": "Deposit",
+      "ESCROW_HOLD": "Escrow hold",
+      "ESCROW_RELEASE": "Escrow release",
+      "PLATFORM_FEE": "Platform fee",
+      "REFUND": "Refund",
+      "WITHDRAWAL": "Withdrawal"
+    }
+  },
+  "builderPublic": {
+    "notFound": "Builder not found",
+    "completed": "Projects completed",
+    "rating": "Average rating",
+    "earned": "Total earned",
+    "portfolio": "Portfolio",
+    "noPortfolio": "No portfolio items yet",
+    "platformDelivery": "Delivered on platform",
+    "reviews": "Client reviews"
+  }
+}
