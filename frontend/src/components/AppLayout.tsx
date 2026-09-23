@@ -34,29 +34,33 @@ export default function AppLayout() {
     return () => clearInterval(timer);
   }, [user, location.pathname]);
 
-  // BuilderHub 导航 —— 「我的任务/投标/私信」仅登录后出现
+  // BuilderHub 顶栏四项：Market / Projects / Messages / Wallet（未登录点击会被
+  // RequireAuth 重定向到登录页；「我的投标」入口在用户下拉菜单里）
+  const navLinks = [
+    { key: '/projects', label: t('nav.marketplace') },
+    { key: '/my/projects', label: t('nav.myProjects') },
+    { key: '/messages', label: t('nav.messages'), badge: unread },
+    { key: '/wallet', label: t('nav.wallet') },
+  ];
+
   const navItems = [
-    { key: '/', label: <Link to="/">{t('nav.home')}</Link> },
-    { key: '/projects', label: <Link to="/projects">{t('nav.marketplace')}</Link> },
+    ...navLinks.map((item) => ({
+      key: item.key,
+      label: (
+        <Link to={item.key}>
+          {item.badge ? (
+            <Badge count={item.badge} size="small" offset={[8, -2]}>{item.label}</Badge>
+          ) : item.label}
+        </Link>
+      ),
+    })),
     { key: '/projects/new', label: <Link to="/projects/new">{t('nav.postProject')}</Link> },
-    ...(user ? [
-      { key: '/my/projects', label: <Link to="/my/projects">{t('nav.myProjects')}</Link> },
-      { key: '/my/applications', label: <Link to="/my/applications">{t('nav.myApplications')}</Link> },
-      {
-        key: '/messages',
-        label: (
-          <Link to="/messages">
-            <Badge count={unread} size="small" offset={[8, -2]}>{t('nav.messages')}</Badge>
-          </Link>
-        ),
-      },
-    ] : []),
   ];
 
   const userMenu = {
     items: [
       { key: 'builderProfile', label: t('nav.builderProfile'), onClick: () => navigate('/builder/profile') },
-      { key: 'wallet', label: t('nav.wallet'), onClick: () => navigate('/wallet') },
+      { key: 'myApplications', label: t('nav.myApplications'), onClick: () => navigate('/my/applications') },
       { key: 'changePassword', label: t('nav.changePassword'), onClick: () => navigate('/change-password') },
       { key: 'logout', label: t('nav.logout'), onClick: () => { logout(); navigate('/'); } },
     ],
@@ -65,14 +69,17 @@ export default function AppLayout() {
   return (
     <Layout className="min-h-screen" style={{ background: token.colorBgBase }}>
       <Header
-        className="flex items-center px-4 md:px-6"
+        className="flex items-center px-4 md:px-8"
         style={{
-          background: token.colorBgContainer,
+          background: '#faf9f7',
+          height: 80,
+          lineHeight: 'normal',
+          boxShadow: '0 1px 2px rgba(16,24,40,0.03), 0 8px 24px rgba(16,24,40,0.04)',
         }}
       >
-        <div className="font-bold text-lg flex-1 md:flex-none md:mr-8 truncate" style={{ color: token.colorText }}>
+        <div className="font-black text-2xl tracking-tight flex-1 md:flex-none truncate text-hub-logo">
           <Link to="/" style={{ color: 'inherit' }}>
-            ⚡ {t('app.name')}
+            {t('app.name')}
           </Link>
         </div>
 
@@ -86,13 +93,31 @@ export default function AppLayout() {
           />
         ) : (
           <>
-            <Menu
-              theme="light"
-              mode="horizontal"
-              selectedKeys={[location.pathname]}
-              items={navItems}
-              style={{ background: 'transparent', flex: 1, borderBottom: 'none' }}
-            />
+            <nav className="flex items-center gap-6 ml-12 flex-1 self-stretch">
+              {navLinks.map((item) => {
+                const active = item.key === '/'
+                  ? location.pathname === '/'
+                  : location.pathname.startsWith(item.key);
+                return (
+                  <Link
+                    key={item.key}
+                    to={item.key}
+                    className={`flex items-center self-stretch px-3 text-base rounded-full my-auto py-1.5 whitespace-nowrap transition-colors ${
+                      active
+                        ? 'font-bold text-hub-logo bg-[rgba(255,107,0,0.08)]'
+                        : 'text-hub-body hover:text-hub-logo hover:bg-[#f1f0ed]'
+                    }`}
+                  >
+                    {item.badge ? (
+                      <Badge count={item.badge} size="small" offset={[8, -2]}>{item.label}</Badge>
+                    ) : item.label}
+                  </Link>
+                );
+              })}
+            </nav>
+            <Button type="primary" className="mr-3 font-medium" onClick={() => navigate('/projects/new')}>
+              {t('nav.postProject')}
+            </Button>
             <LanguageSwitcher />
             {user ? (
               <div className="flex items-center gap-3 ml-3">
@@ -138,7 +163,7 @@ export default function AppLayout() {
           {user ? (
             <>
               <Button block onClick={() => go('/builder/profile')}>{t('nav.builderProfile')}</Button>
-              <Button block onClick={() => go('/wallet')}>{t('nav.wallet')}</Button>
+              <Button block onClick={() => go('/my/applications')}>{t('nav.myApplications')}</Button>
               <Button block onClick={() => go('/change-password')}>{t('nav.changePassword')}</Button>
               <Button block danger onClick={() => { logout(); go('/'); }}>{t('nav.logout')}</Button>
             </>
@@ -154,8 +179,22 @@ export default function AppLayout() {
       <Content className="p-4 md:p-6" style={{ backgroundColor: token.colorBgBase }}>
         <Outlet />
       </Content>
-      <Footer className="text-center text-gray-500">
-        {t('app.footer', { year: new Date().getFullYear() })}
+      <Footer style={{ background: '#213145', padding: '48px 32px' }}>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-6 flex-wrap justify-center">
+            <span className="font-black text-2xl tracking-tight" style={{ color: '#ffdbcc' }}>
+              {t('app.name')}
+            </span>
+            <span className="text-base" style={{ color: '#d3e4fe' }}>
+              {t('app.footer', { year: new Date().getFullYear() })}
+            </span>
+          </div>
+          <div className="flex items-center gap-6 flex-wrap justify-center text-base" style={{ color: '#d3e4fe' }}>
+            <Link to="/" style={{ color: 'inherit' }}>{t('nav.home')}</Link>
+            <Link to="/projects" style={{ color: 'inherit' }}>{t('nav.marketplace')}</Link>
+            <Link to="/projects/new" style={{ color: 'inherit' }}>{t('nav.postProject')}</Link>
+          </div>
+        </div>
       </Footer>
       <FeedbackWidget />
     </Layout>

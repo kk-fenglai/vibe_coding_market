@@ -1,14 +1,15 @@
 import { useCallback, useEffect, useState } from 'react';
 import {
-  Card, Col, Row, Input, Select, InputNumber, Switch, Button, Tag, Typography,
-  Pagination, Empty, Spin, Space, message,
+  Checkbox, Input, Select, InputNumber, Switch, Button, Tag,
+  Pagination, Empty, Spin, message,
 } from 'antd';
+import { ClockCircleOutlined } from '@ant-design/icons';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { listProjects, type MarketFilters } from '../../api/projects';
 import { PROJECT_CATEGORIES, CURRENCIES, DELIVERY_DAYS, type Project } from '../../types';
 
-const { Title, Paragraph, Text } = Typography;
+const SKILL_CHIPS = ['React', 'Vue.js', 'Next.js', 'Python', 'Tailwind', 'LangChain', 'Three.js', 'Node.js'];
 
 function budgetLabel(p: Project) {
   const c = p.currency === 'CNY' ? '¥' : p.currency === 'USD' ? '$' : '€';
@@ -66,83 +67,133 @@ export default function Marketplace() {
 
   useEffect(() => { load(); }, [load]);
 
-  return (
-    <div className="max-w-6xl mx-auto">
-      <div className="mb-4">
-        <Title level={2} style={{ marginBottom: 4 }}>{t('market.title')}</Title>
-        <Paragraph className="text-gray-500">{t('market.subtitle')}</Paragraph>
-      </div>
+  const activeCategory = params.get('category') || undefined;
+  const activeStack = params.get('stack') || undefined;
 
-      <Card className="mb-4" size="small">
-        <Row gutter={[12, 12]} align="middle">
-          <Col xs={24} md={8}>
-            <Input.Search
-              allowClear
-              placeholder={t('market.search')}
-              defaultValue={params.get('q') || ''}
-              onSearch={(v) => setFilter('q', v || undefined)}
-            />
-          </Col>
-          <Col xs={12} md={4}>
-            <Select
-              allowClear
-              className="w-full"
-              placeholder={t('market.category')}
-              value={params.get('category') || undefined}
-              onChange={(v) => setFilter('category', v)}
-              options={PROJECT_CATEGORIES.map((c) => ({ value: c, label: t(`market.cat.${c}`) }))}
-            />
-          </Col>
-          <Col xs={12} md={3}>
-            <Select
-              allowClear
-              className="w-full"
-              placeholder={t('market.currency')}
-              value={params.get('currency') || undefined}
-              onChange={(v) => setFilter('currency', v)}
-              options={CURRENCIES.map((c) => ({ value: c, label: c }))}
-            />
-          </Col>
-          <Col xs={12} md={4}>
+  const filterCard = 'bg-white rounded-2xl shadow-soft p-[25px] w-full';
+  const filterTitle = 'text-2xl font-semibold text-hub-heading tracking-[-0.24px] mb-4 mt-0';
+
+  return (
+    <div className="max-w-[1216px] mx-auto flex flex-col lg:flex-row gap-6 items-start">
+      {/* ── Sidebar filters ── */}
+      <aside className="w-full lg:w-64 shrink-0 flex flex-col gap-6">
+        <div className={filterCard}>
+          <h3 className={filterTitle}>{t('market.search')}</h3>
+          <Input.Search
+            allowClear
+            placeholder={t('market.search')}
+            defaultValue={params.get('q') || ''}
+            onSearch={(v) => setFilter('q', v || undefined)}
+          />
+        </div>
+
+        <div className={filterCard}>
+          <h3 className={filterTitle}>{t('market.category')}</h3>
+          <div className="flex flex-col gap-3">
+            {PROJECT_CATEGORIES.map((c) => (
+              <Checkbox
+                key={c}
+                checked={activeCategory === c}
+                onChange={(e) => setFilter('category', e.target.checked ? c : undefined)}
+              >
+                <span className="text-base text-hub-body">{t(`market.cat.${c}`)}</span>
+              </Checkbox>
+            ))}
+          </div>
+        </div>
+
+        <div className={filterCard}>
+          <h3 className={filterTitle}>{t('market.budgetMin')} / {t('market.budgetMax')}</h3>
+          <div className="flex items-center gap-2 mb-3">
             <InputNumber
-              className="w-full"
+              className="flex-1"
               min={0}
               placeholder={t('market.budgetMin')}
               value={params.get('budgetMin') ? Number(params.get('budgetMin')) : null}
               onChange={(v) => setFilter('budgetMin', v ?? undefined)}
             />
-          </Col>
-          <Col xs={12} md={4}>
+            <span className="text-hub-body">–</span>
             <InputNumber
-              className="w-full"
+              className="flex-1"
               min={0}
               placeholder={t('market.budgetMax')}
               value={params.get('budgetMax') ? Number(params.get('budgetMax')) : null}
               onChange={(v) => setFilter('budgetMax', v ?? undefined)}
             />
-          </Col>
-          <Col xs={12} md={5}>
-            <Select
-              allowClear
-              className="w-full"
-              placeholder={t('market.maxDelivery')}
-              value={params.get('maxDeliveryDays') || undefined}
-              onChange={(v) => setFilter('maxDeliveryDays', v)}
-              options={DELIVERY_DAYS.map((d) => ({ value: String(d), label: t('market.days', { count: d }) }))}
+          </div>
+          <Select
+            allowClear
+            className="w-full"
+            placeholder={t('market.currency')}
+            value={params.get('currency') || undefined}
+            onChange={(v) => setFilter('currency', v)}
+            options={CURRENCIES.map((c) => ({ value: c, label: c }))}
+          />
+        </div>
+
+        <div className={filterCard}>
+          <h3 className={filterTitle}>{t('market.stack')}</h3>
+          <div className="flex flex-wrap gap-2 mb-3">
+            {SKILL_CHIPS.map((s) => {
+              const active = activeStack === s;
+              return (
+                <button
+                  key={s}
+                  type="button"
+                  onClick={() => setFilter('stack', active ? undefined : s)}
+                  className={`px-3 py-1.5 rounded-full text-sm font-medium cursor-pointer transition-colors ${
+                    active
+                      ? 'bg-[rgba(255,107,0,0.1)] text-hub-primary'
+                      : 'bg-[#f1f0ed] text-hub-heading hover:bg-[#e9e7e2]'
+                  }`}
+                >
+                  {s}
+                </button>
+              );
+            })}
+          </div>
+          <Input
+            allowClear
+            placeholder={t('market.stack')}
+            defaultValue={activeStack && !SKILL_CHIPS.includes(activeStack) ? activeStack : ''}
+            onBlur={(e) => e.target.value && setFilter('stack', e.target.value)}
+            onPressEnter={(e) => setFilter('stack', (e.target as HTMLInputElement).value || undefined)}
+          />
+        </div>
+
+        <div className={filterCard}>
+          <h3 className={filterTitle}>{t('market.maxDelivery')}</h3>
+          <Select
+            allowClear
+            className="w-full mb-3"
+            placeholder={t('market.maxDelivery')}
+            value={params.get('maxDeliveryDays') || undefined}
+            onChange={(v) => setFilter('maxDeliveryDays', v)}
+            options={DELIVERY_DAYS.map((d) => ({ value: String(d), label: t('market.days', { count: d }) }))}
+          />
+          <div className="flex items-center gap-2 mb-4">
+            <Switch
+              checked={params.get('urgent') === 'true'}
+              onChange={(v) => setFilter('urgent', v || undefined)}
             />
-          </Col>
-          <Col xs={24} md={7}>
-            <Input
-              allowClear
-              placeholder={t('market.stack')}
-              defaultValue={params.get('stack') || ''}
-              onBlur={(e) => setFilter('stack', e.target.value || undefined)}
-              onPressEnter={(e) => setFilter('stack', (e.target as HTMLInputElement).value || undefined)}
-            />
-          </Col>
-          <Col xs={12} md={5}>
+            <span className="text-base text-hub-body">{t('market.urgentOnly')}</span>
+          </div>
+          <Button block onClick={() => setParams(new URLSearchParams(), { replace: true })}>
+            {t('market.reset')}
+          </Button>
+        </div>
+      </aside>
+
+      {/* ── Main content ── */}
+      <main className="flex-1 min-w-0 w-full">
+        <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
+          <div>
+            <h1 className="text-base font-normal text-hub-heading m-0">{t('market.title')}</h1>
+            <p className="text-lg text-hub-body leading-7 mt-2 mb-0 max-w-2xl">{t('market.subtitle')}</p>
+          </div>
+          <div className="flex items-center gap-3">
             <Select
-              className="w-full"
+              className="w-40"
               value={params.get('sort') || 'newest'}
               onChange={(v) => setFilter('sort', v)}
               options={[
@@ -151,68 +202,80 @@ export default function Marketplace() {
                 { value: 'delivery', label: t('market.sortDelivery') },
               ]}
             />
-          </Col>
-          <Col xs={12} md={4}>
-            <Space>
-              <Switch
-                checked={params.get('urgent') === 'true'}
-                onChange={(v) => setFilter('urgent', v || undefined)}
-              />
-              <Text>{t('market.urgentOnly')}</Text>
-            </Space>
-          </Col>
-          <Col xs={24} md={3}>
-            <Button block onClick={() => setParams(new URLSearchParams(), { replace: true })}>
-              {t('market.reset')}
-            </Button>
-          </Col>
-        </Row>
-      </Card>
-
-      <Spin spinning={loading}>
-        {items.length === 0 && !loading ? (
-          <Empty description={t('market.empty')} />
-        ) : (
-          <Row gutter={[16, 16]}>
-            {items.map((p) => (
-              <Col xs={24} md={12} key={p.id}>
-                <Link to={`/projects/${p.id}`}>
-                  <Card hoverable className="h-full">
-                    <div className="flex justify-between items-start gap-3">
-                      <Title level={5} style={{ marginBottom: 4 }}>{p.title}</Title>
-                      {p.urgent && <Tag color="red">{t('market.urgent')}</Tag>}
-                    </div>
-                    <Space wrap size={[4, 4]} className="mb-2">
-                      <Tag color="blue">{t(`market.cat.${p.category}`)}</Tag>
-                      <Tag>{t('market.deliveryIn', { count: p.deliveryDays })}</Tag>
-                      {p.stackPref.slice(0, 3).map((s) => <Tag key={s}>{s}</Tag>)}
-                    </Space>
-                    <div className="flex justify-between items-center flex-wrap gap-2">
-                      <Text strong style={{ fontSize: 16 }}>{budgetLabel(p)}</Text>
-                      <Space size={8}>
-                        <Text type="secondary">{t('market.applicants', { count: p.applicationCount })}</Text>
-                        {p.hasApplied && <Tag color="green">{t('market.applied')}</Tag>}
-                      </Space>
-                    </div>
-                  </Card>
-                </Link>
-              </Col>
-            ))}
-          </Row>
-        )}
-      </Spin>
-
-      {total > pageSize && (
-        <div className="flex justify-center mt-6">
-          <Pagination
-            current={page}
-            pageSize={pageSize}
-            total={total}
-            showSizeChanger={false}
-            onChange={(p) => setFilter('page', p)}
-          />
+            <Link to="/projects/new">
+              <Button type="primary" className="font-semibold">{t('nav.postProject')}</Button>
+            </Link>
+          </div>
         </div>
-      )}
+
+        <Spin spinning={loading}>
+          {items.length === 0 && !loading ? (
+            <Empty description={t('market.empty')} />
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              {items.map((p) => (
+                <Link key={p.id} to={`/projects/${p.id}`} className="block">
+                  <article className="bg-white rounded-2xl shadow-soft p-[25px] h-full flex flex-col transition-shadow hover:shadow-lift">
+                    <div className="flex items-start justify-between gap-2 pb-3">
+                      <div className="flex flex-wrap gap-2">
+                        <span className="bg-[#eff4ff] text-hub-body text-xs uppercase tracking-[0.6px] px-2 py-1 rounded-md">
+                          {t(`market.cat.${p.category}`)}
+                        </span>
+                        {p.urgent && (
+                          <span className="bg-[rgba(255,107,0,0.1)] text-hub-primary text-xs uppercase tracking-[0.6px] px-2 py-1 rounded-md">
+                            {t('market.urgent')}
+                          </span>
+                        )}
+                      </div>
+                      {p.hasApplied && <Tag color="green" className="m-0">{t('market.applied')}</Tag>}
+                    </div>
+                    <h3 className="text-2xl font-semibold text-hub-heading tracking-[-0.24px] leading-8 m-0 pb-2 line-clamp-2">
+                      {p.title}
+                    </h3>
+                    <p className="text-base text-hub-body leading-6 mb-6 line-clamp-3">
+                      {p.description || p.tags.join(' · ')}
+                    </p>
+                    <div className="flex flex-wrap gap-2 pb-6 mt-auto">
+                      {p.stackPref.slice(0, 3).map((s) => (
+                        <span key={s} className="bg-[#121212] text-white text-sm font-mono px-2 py-1 rounded-md">
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex items-center justify-between pt-6">
+                      <div>
+                        <div className="text-sm font-semibold text-hub-body tracking-[0.14px]">{t('market.budgetRange')}</div>
+                        <div className="text-2xl font-semibold text-hub-heading tracking-[-0.24px]">{budgetLabel(p)}</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-sm font-semibold text-hub-body tracking-[0.14px]">
+                          <ClockCircleOutlined className="mr-1" />
+                          {t('market.deliveryIn', { count: p.deliveryDays })}
+                        </div>
+                        <div className="text-sm font-semibold text-hub-primary tracking-[0.14px] mt-1">
+                          {t('market.applicants', { count: p.applicationCount })}
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          )}
+        </Spin>
+
+        {total > pageSize && (
+          <div className="flex justify-center pt-12">
+            <Pagination
+              current={page}
+              pageSize={pageSize}
+              total={total}
+              showSizeChanger={false}
+              onChange={(p) => setFilter('page', p)}
+            />
+          </div>
+        )}
+      </main>
     </div>
   );
 }

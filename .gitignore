@@ -29,3 +29,6 @@ backend/content/fei-samples/**/*.pdf
 backend/content/fei-samples/**/*.mp3
 !backend/content/fei-samples/**/parsed.json
 !backend/content/fei-samples/**/README.md
+
+# Embedded PostgreSQL local data dir (scripts/dev-db.js)
+backend/.pgdata/

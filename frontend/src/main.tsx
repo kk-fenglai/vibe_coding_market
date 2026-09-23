@@ -35,20 +35,21 @@ function AppWithLocale() {
       theme={{
         algorithm: antdTheme.defaultAlgorithm,
         token: {
-          colorPrimary: '#1d4ed8',
+          colorPrimary: '#ff6b00',
           // Admin login uses danger (red) buttons; default red was too light.
           colorError: '#dc2626',
-          colorBgBase: '#f6f8ff',
+          colorBgBase: '#faf9f7',
           colorBgContainer: '#ffffff',
-          // Visible control borders — checkboxes, inputs, selects and default
-          // buttons were invisible (transparent) and looked like faint white
-          // boxes. colorBorderSecondary stays transparent so cards/tables keep
-          // the borderless, shadow-separated look.
+          // Borderless look: surfaces separate via shadow/whitespace, not lines.
+          // colorBorder stays visible only for checkbox/radio affordance.
           colorBorder: '#94a3b8',
           colorBorderSecondary: 'transparent',
-          colorTextBase: '#0b1220',
-          colorTextSecondary: 'rgba(11, 18, 32, 0.62)',
-          borderRadius: 12,
+          colorSplit: 'rgba(2, 6, 23, 0.04)',
+          colorTextBase: '#0b1c30',
+          colorTextSecondary: '#5a4136',
+          colorLink: '#ff6b00',
+          colorLinkHover: '#e66000',
+          borderRadius: 16,
           fontFamily: '"PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif',
         },
         components: {
@@ -56,6 +57,43 @@ function AppWithLocale() {
           // and a strong filled state when checked/selected.
           Checkbox: { colorBorder: '#64748b' },
           Radio: { colorBorder: '#64748b' },
+          // Contra-style borderless pills: primary = solid orange, default =
+          // soft neutral fill, no borders, no shadows.
+          Button: {
+            borderRadius: 999,
+            borderRadiusLG: 999,
+            borderRadiusSM: 999,
+            fontWeight: 500,
+            defaultBg: '#f1f0ed',
+            defaultHoverBg: '#e9e7e2',
+            defaultBorderColor: 'transparent',
+            defaultHoverBorderColor: 'transparent',
+            defaultShadow: 'none',
+            primaryShadow: 'none',
+            dangerShadow: 'none',
+          },
+          // Filled inputs: quiet gray fill, border only appears on focus.
+          Input: {
+            colorBorder: 'transparent',
+            hoverBorderColor: '#d6d3cd',
+            activeBorderColor: '#ff6b00',
+            colorBgContainer: '#f1f0ed',
+          },
+          InputNumber: {
+            colorBorder: 'transparent',
+            hoverBorderColor: '#d6d3cd',
+            activeBorderColor: '#ff6b00',
+            colorBgContainer: '#f1f0ed',
+          },
+          Select: {
+            colorBorder: 'transparent',
+            colorBgContainer: '#f1f0ed',
+          },
+          Table: {
+            borderColor: 'transparent',
+            headerBg: 'transparent',
+            headerSplitColor: 'transparent',
+          },
         },
       }}
     >
